@@ -28,7 +28,7 @@ It contains **no real backend**. Instead, all data persistence and business logi
 - **State Management**: Handled via standard React hooks (`useState`, `useEffect`).
 
 ## Assumptions & Limitations
-- **Data Persistence**: Data is persisted using browser `localStorage`. Refreshing the browser will not reset the data; it survives page reloads.
+- **Data Persistence**: Because there is no central database, data is persisted using browser `localStorage`. This is a limitation as data is isolated to the specific browser and device, meaning it cannot be shared across different users or sessions.
 - **Authentication**: Simulated using a simple dropdown in the UI. In a real application, an authentication context/provider with JWT validation would be used.
 - **Pagination**: Assuming the number of records is small for this prototype, so pagination is not implemented.
 
