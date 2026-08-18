@@ -2,7 +2,7 @@
 
 This is a standalone frontend variant of the Supplier Management App, built for Scenario 1 (Frontend Developer Challenge). 
 
-It contains **no real backend**. Instead, all data persistence and business logic rules (such as VAT ID uniqueness, strict status transitions, and the four-eyes principle) are enforced by a simulated `MockSupplierService` that lives purely in-memory.
+It contains **no real backend**. Instead, all data persistence and business logic rules (such as VAT ID uniqueness, strict status transitions, and the four-eyes principle) are enforced by a simulated `MockSupplierService` that uses `localStorage` to persist data.
 
 ## Setup & Running
 
@@ -28,12 +28,11 @@ It contains **no real backend**. Instead, all data persistence and business logi
 - **State Management**: Handled via standard React hooks (`useState`, `useEffect`).
 
 ## Assumptions & Limitations
-- **Data Persistence**: Data is stored in memory (`let suppliers = []`). If you refresh the browser, the data resets to the initial mock seed. For persistent mock data, `localStorage` could be implemented.
+- **Data Persistence**: Data is persisted using browser `localStorage`. Refreshing the browser will not reset the data; it survives page reloads.
 - **Authentication**: Simulated using a simple dropdown in the UI. In a real application, an authentication context/provider with JWT validation would be used.
 - **Pagination**: Assuming the number of records is small for this prototype, so pagination is not implemented.
 
 ## What I'd Improve with More Time
 - Implement robust form validation using `React Hook Form` and `Zod` rather than manual state checking.
-- Connect the mock service to `localStorage` so data survives page reloads.
 - Use `React Query` to handle fetching, caching, and invalidation natively instead of manual `useEffect` fetching.
 - Add end-to-end (E2E) testing with Cypress or Playwright to click through the actual DOM elements.
